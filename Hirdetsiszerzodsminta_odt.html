@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)" />
+	<meta name="created" content="00:00:00" />
+	<meta name="changed" content="2024-08-18T14:49:12.322527734" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<style type="text/css">
+		@page {
+			size: 21cm 29.7cm;
+			margin-left: 2.5cm;
+			margin-right: 2.38cm;
+			margin-bottom: 1.27cm
+		}
+
+		@page: first {
+			margin-bottom: 1.36cm
+		}
+
+		p {
+			line-height: 115%;
+			margin-bottom: 0.25cm;
+			background: transparent
+		}
+
+		a:link {
+			color: #000080;
+			/*so-language: zxx;*/
+			text-decoration: underline
+		}
+	</style>
+</head>
+
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr">
+	<div title="header">
+		<p style="margin-bottom: 2.36cm"><br />
+
+		</p>
+	</div>
+	<!--Modal kezdet-->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-fullscreen">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Megrendelő rögzítése</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form action="">
+
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col lh-1">
+									<textarea id="tablazatAdatok" rows="10" cols="45"
+										placeholder="Szöveg beillesztés"></textarea>
+									<button type="button" class="btn btn-secondary" onclick="szovegbetolt()">Szöveg
+										betölt</button>
+								</div>
+								<div class="col lh-1">
+									<h4>Megrendelő adatai</h4>
+									<p><span>Név: <input id="mnev" type="text" required></span></p>
+									<p><span>Cég név: <input id="mcnev" type="text" required></span></p>
+									<p><span>Cím: <input id="mcim" size="30" type="text" required></span></p>
+									<p><span>Telefonszám: <input id="mtel" type="text" required></span></p>
+									<p><span>Email cím: <input id="memail" type="text" required></span></p>
+									<p><span>Cégjegyzékszám: <input id="mcsz" type="text" required></span></p>
+									<p><span>Adószám: <input id="masz" type="text" required></span></p>
+
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col lh-1">
+									<h4>Hirdetés adatai</h4>
+									<p><span>Megrendelés dátum: <input id="mhdatum" type="text" required></span></p>
+									<p style="color: red;"><span>Lejárati dátum: <input id="mhldatum" type="text" required></span> ! Átjvítani !</p>
+									<p><span>Név: <input id="mhnev" type="text" required></span></p>
+									<p><span>Cím: <input id="mhcim" size="30" type="text" required></span></p>
+									<p><span>Telefonszám: <input id="mhtel" type="text" required></span></p>
+									<p><span>Email: <input id="mhemail" type="text" required></span></p>
+									<p><span>Web: <input id="mhweb" type="text" required></span></p>
+
+								</div>
+
+								<div class="col lh-1">
+									<!--p><span>Szöveg:<input id="mhsz" type="text" required></span></p-->
+									<p><span>Szöveg: <textarea id="mhsz" rows="5" cols="45"></textarea></span></p>
+									<p><span>Terkép: <input id="mhter" type="text" required></span></p>
+									<p><span>Helyi: <input id="mhhelyi" type="text" required></span></p>
+									<p><span>Kategória: <input id="mhkat" type="text" required></span></p>
+									<p><span>Tipus: <input id="mhtip" type="text" required></span></p>
+									<p><span>Adatvédelem: <input id="mhav" type="text" required></span></p>
+									<p><span>ÁSZF: <input id="mhaszf" type="text" required></span></p>
+									<p><span>Azonosító: <input id="mhazon" type="text" required></span></p>
+
+
+
+
+								</div>
+							</div>
+						</div>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezárás</button>
+						<button type="button" class="btn btn-primary" id="mentes">Mentés</button>
+				</div>
+
+				</form>
+
+			</div>
+
+			<div class="modal-footer">
+			</div>
+		</div>
+	</div>
+	</div>
+	<!--Modal vége-->
+	<p lang="hu-HU" align="center" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>HIRDETÉSI
+			</b></span>
+		<span face="Roboto, serif"><b>SZERZŐDÉS</b></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">amely
+			létrejött az alábbi felek között: </span>
+	</p>
+	
+	<p class="fs-6 fw-bold"><a href="#exampleModal" class="link-dark" data-bs-toggle="modal"
+			data-bs-target="#exampleModal">Megrendelő</a></p>
+
+	<p style="margin-bottom: 0cm">név: <span id="nev" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">cég név: <span id="cnev" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">cím: <span id="cim" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">telefonszám: <span id="tel" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">email: <span id="email" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">cégjegyzékszám: <span id="csz" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">adószám: <span id="asz" style="font-style: italic;"></span></p>
+
+	
+	<p lang="hu-HU" align="justify">
+		<span face="Roboto, serif">továbbiakban
+			mint Megrendelő, illetve</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>Szolgáltató</b></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">név: Nyisztor
+			Zoltán</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">cégnév: </span>
+		<span face="Roboto, serif">
+			Nyisztor Zoltán e.v.</span>
+		<span face="Roboto, serif"> </span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">cím/levelezési</span>
+		<span face="Roboto, serif">
+			cím</span>
+		<span face="Roboto, serif">: </span>
+		<span face="Roboto, serif">4225
+			Debrecen Monostorerdő utca 81.</span>
+		<span face="Roboto, serif"> </span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">bankszámlaszám: OTP bank 11773384-08036595</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">nyilvántartási
+			szám</span>
+		<span face="Roboto, serif">: 59513982 </span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">adóazonosító
+			szám: 90331981-1-29 </span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">e-mail:
+			jozsaiszakik@gmail.com</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">telefonszám:
+			+36701507991</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">továbbiakban
+			mint Szolgáltató </span>
+		<span face="Roboto, serif">az alábbi
+			feltételek szerint</span>
+		<span face="Roboto, serif">.</span>
+	</p>
+	<p lang="hu-HU" style="line-height: 100%; margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" style="line-height: 100%; margin-bottom: 0cm">
+		<span face="Roboto, serif"><span style="background: #ffffff">A
+				vonatkozó jogszabályok mellett a megkötésre kerülő szerződés
+				tartalmát az Általános Szerződési Feltételek is szabályozzák.
+				Ennek keretein belül összefoglaljuk a Megrendelőt és a
+				Szolgáltatót megillető jogokat, kötelezettségeket, a
+				szerződéskötés feltételeit, a fizetési, illetve teljesítési
+				feltételeket, a határidőket, a felelősséggel kapcsolatos
+				szabályokat, továbbá az elállási jog gyakorlásának
+				feltételeit.</span></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>1.
+				A szerződés tárgya </b></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Felek
+			megállapodnak abban, hogy Szolgáltató a Megrendelő által </span>
+		<span face="Roboto, serif">a
+		</span>
+		<span face="Roboto, serif"><b>2. pontban </b></span>
+		<span face="Roboto, serif">
+			megadott adatok</span>
+		<span face="Roboto, serif"> alapján
+			képpel</span>
+		<span face="Roboto, serif">(fénykép,logó) </span>
+		<span face="Roboto, serif">ellátott
+			Internetes megjelenési </span>
+		<span face="Roboto, serif">felületet</span>
+		<span face="Roboto, serif">
+			biztosít Megrendelő részére, melynek ellenértékeként
+			Megrendelő a jelen szerződésben meghatározott időtartamra
+			ellenszolgáltatás megfizetésére köteles.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>2.
+				A honlapon megjelenő adatok:</b></span>
+	</p>
+	
+	<p style="margin-bottom: 0cm">Név,cégnév,vállalkozás neve: <span id="hnev" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">Cím: <span id="hcim" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">Telefonszám: <span id="htel" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">Email-cím: <span id="hemail" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">Weboldal címe: <span id="hweb" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">A hirdetésben megjelenő szöveg: <span id="hsz" style="font-style: italic;"> </span>	</p>
+	<p style="margin-bottom: 0cm">Cím térképen történő megjelenítés: <span id="hter" style="font-style: italic;"></span>
+	<p style="margin-bottom: 0cm">Helyi vállalkozás: <span id="hhelyi" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">Kategória: <span id="hkat" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">Szakma,szolgáltatás, üzlet típusa: <span id="htip" style="font-style: italic;"></span>	</p>
+	<p style="margin-bottom: 0cm">Adatvédelem: <span id="hav" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm">ÁSZF: <span id="haszf" style="font-style: italic;"></span></p>
+	<p style="margin-bottom: 0cm"><br /></p>
+	<p style="margin-bottom: 0cm">Az Ön hirdetés azonosítója: <span style="font-style: italic;"><b id="hazon"></b></span></p>
+
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br/>
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>3.
+			</b></span>
+		<span face="Roboto, serif"><b>A szerződés időtartama,
+			</b></span>
+		<span face="Roboto, serif"><b>megszűnése</b></span>
+		<span face="Roboto, serif"><b>,
+				megszüntetése</b></span>
+		<span face="Roboto, serif">.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">
+		Felek a jelen szerződést <span><b id="hdatum" style="font-style: italic;"></b></span> naptól határozott időtartamra(1 évre azaz 365 napra)
+		kötik meg,  amely  jelen szerződésnek a lejárati ideje <span><b id="hldatum" style="font-style: italic;"></b></span> 
+		</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Amennyiben
+			a Megrendelő vállalkozása, szolgáltatása, üzlete a feltüntetett
+			lejárati időpont előtt megszűnik vagy bármilyen egyéb okból
+			kéri a hirdetés törlését, megszüntetését melyet a Szolgáltató
+			felé e-mailben jelez, ezen esetben a szerződés hatályát veszti,
+			a megfizetett szolgáltatás ellenértéke nem kerül visszatérítésre
+			kivétel ez alól a </span>
+		<span face="Roboto, serif"><b>8.pontban</b></span>
+		<span face="Roboto, serif">
+			jelzett elállási jog érvényesítése esetén.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>4.
+				Díjazás, fizetési feltételek</b></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">A
+			szolgáltatás a </span>
+		<span face="Roboto, serif"><b>3.pontban</b></span>
+		<span face="Roboto, serif">
+			feltüntetett időtartamra egyszeri nettó </span>
+		<span face="Roboto, serif"><b>hatezer
+				forint</b></span>
+		<span face="Roboto, serif"> azaz nettó </span>
+		<span face="Roboto, serif"><b>6000
+				forint.</b></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">A
+			felek megállapodnak, hogy a Szolgáltató a szolgáltatási díjat
+			tartalmazó számlát melynek összege</span>
+		<span face="Roboto, serif"><b>
+				hatezer forint</b></span>
+		<span face="Roboto, serif"> azaz </span>
+		<span face="Roboto, serif"><b>6000
+				forint,</b></span>
+		<span face="Roboto, serif"> tartós adathordozón
+			e-mail-ben nyújtja be a szerződött partner(Megrendelő) részére,
+			aki a számla ellenértékét </span>
+		<span face="Roboto, serif"><b>átutalással</b></span>
+		<span face="Roboto, serif">
+			egyenlíti ki.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">A
+			számla kibocsátója(Szolgáltató) alanyi adómentes.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Amennyiben
+			a számla összege nem érkezik meg a számla kézbesítésétől
+			számított </span>
+		<span face="Roboto, serif"><b>5 naptári napon</b></span>
+		<span face="Roboto, serif">
+			belül a Szolgáltató számlájára, úgy a szerződés hatályát
+			veszti és a hirdetés nem kerül megjelenítésre a weboldalon. </span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>5.
+			</b></span>
+		<span face="Roboto, serif"><b>Szolgáltató
+				kötelezettségei </b></span>
+	</p>
+	<p align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><span lang="hu-HU">Szolgáltató
+				a jelen szerződés alapján az </span></span>
+		<span face="Roboto, serif"><span lang="hu-HU">i</span></span>
+		<span face="Roboto, serif"><span lang="hu-HU">nterneten
+				kizárólag a </span></span><a href="http://www.jozsaiszakik.hu/">
+			<span color="#1155cc">
+				<span face="Roboto, serif"><span lang="hu-HU"><u>www.jozsaiszakik.hu</u></span></span>
+			</span>
+		</a>
+		<span face="Roboto, serif"><span lang="hu-HU">
+			</span></span>
+		<span face="Roboto, serif"><span lang="hu-HU"> web
+				címen megtalálható honlapon elhelyezi a Megrendelő által a jelen
+				szerződésben </span></span>
+		<span face="Roboto, serif"><span lang="hu-HU"><b>2.</b></span></span>
+		<span face="Roboto, serif"><span lang="hu-HU"><b>pontban
+				</b></span></span>
+		<span face="Roboto, serif"><span lang="hu-HU">megadott
+				adatokat</span></span>
+		<span face="Roboto, serif"><span lang="hu-HU">
+			</span></span>
+		<span face="Roboto, serif"><span lang="hu-HU">m</span></span>
+		<span face="Roboto, serif"><span lang="hu-HU">egjeleníti.
+			</span></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Szolgáltató
+			a</span>
+		<span face="Roboto, serif"> honlapot</span>
+		<span face="Roboto, serif">
+			fenntartja, üzemelteti, </span>
+		<span face="Roboto, serif">karbantartja
+			azt</span>
+		<span face="Roboto, serif"> elérhetővé teszi minden, a
+			honlapot látogató személy számára. </span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Szolgáltató
+			köteles jelen szerződés alapján a </span>
+		<span face="Roboto, serif"><b>4.pontban</b></span>
+		<span face="Roboto, serif">
+		</span>
+		<span face="Roboto, serif">feltüntetett</span>
+		<span face="Roboto, serif">
+		</span>
+		<span face="Roboto, serif">ellenérték ellenében</span>
+		<span face="Roboto, serif">
+			a </span>
+		<span face="Roboto, serif"><b>3</b></span>
+		<span face="Roboto, serif"><b>.
+				pontban</b></span>
+		<span face="Roboto, serif"><b> </b></span>
+		<span face="Roboto, serif">feltüntetett
+			a szerződés létrejöttének dátumától a </span>
+		<span face="Roboto, serif">
+			lejárati dátumig a </span>
+		<span face="Roboto, serif">hirdetés
+			megjelenését</span>
+		<span face="Roboto, serif"> biztosítani</span>
+		<span face="Roboto, serif">.
+		</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">A
+			számla kiegyenlítését követően maximum 3 naptári napon belül
+			a szolgáltatónak el kell helyezni a hirdetést a weboldalon.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Amennyiben
+			a Szolgáltató nem tudja a szerződés megkötésekor illetve a
+			számla kiegyenlítését követően vagy legkésőbb 3 naptári
+			napon belül létrehozni a hirdetést és elhelyezni a weboldalon,
+			abban az esetben a hirdetés a szerződés létrejötte és a
+			hirdetés megjelenésének dátuma között eltelt idővel díj
+			mentesen meghosszabbodik a hirdetés megjelenítésének a dátuma,
+			amely nem befolyásolja a szerződés dátumát. </span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">A
+			Szolgáltató fenntartja magának a jogot arra, hogy online
+			szolgáltatását és ezzel a megjelenések formai jellemzőit,
+			elhelyezkedését, ezek környezetét bármikor megváltoztassa.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>6.Szerzői
+				jogok</b></span>
+	</p>
+	<p align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><span lang="hu-HU">A
+				Megrendelő által Szolgáltató részére átadott szerzői jogi
+				tartalmak (különböző adatok, információk, képek, stb.)
+				tekintetében Szolgáltató felhasználási jogot szerez és
+				jogosulttá válik ezen tartalmakat hirdetés céljából
+				felhasználni,nyilvánossághoz közvetíteni kizárólag a
+			</span></span><a href="http://www.joszaiszakik.hu/">
+			<span color="#1155cc">
+				<span face="Roboto, serif"><span lang="hu-HU"><u>www.joszaiszakik.hu</u></span></span>
+			</span>
+		</a>
+		<span face="Roboto, serif"><span lang="hu-HU">
+				online felületen.</span></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Amennyiben
+			a megrendelő nem tud a hirdetéséhez képet, logót biztosítani és
+			azt a Szolgáltató biztosítja a megrendelő részére, ebben az
+			esetben a Megrendelőt nem illeti meg a szerződés lejárta után a
+			hirdetéshez biztosított kép vagy logó szerzői joga. A szerződés
+			lejárta után a megrendelő engedélye nélkül nem használható
+			tovább a rendelkezésre bocsátott tartalom.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>7.
+			</b></span>
+		<span face="Roboto, serif"><b>Megrendelő kötelezettségei
+			</b></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Megrendelő
+			köteles a jelen szerződésben a </span>
+		<span face="Roboto, serif"><b>megrendelő
+				adatait</b></span>
+		<span face="Roboto, serif"> hitelt érdemlően
+			megadni és minden adatra kiterjedően kitölteni.</span>
+		<span face="Roboto, serif">
+		</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">A
+			Megrendelő jelen szerződéssel hozzájárulását adja hogy a
+		</span>
+		<span face="Roboto, serif"><b>megrendelő adatai </b></span>
+		<span face="Roboto, serif">pontban
+			felsorolt adatait a Szolgáltató az adatkezelési szabályzatnak
+			megfelelően tárolja.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">A
+			Megrendelő vállalja, hogy a Szolgáltató részére elektronikus
+			formában átadott, hirdetésben megjelenő képnek/képeknek vagy
+			logónak/logóknak a tulajdonjogával rendelkezik.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>8.</b></span>
+		<span face="Roboto, serif"><b>
+				Egyéb kikötések </b></span>
+	</p>
+	<p align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><span lang="hu-HU">A
+				szerződés elválaszthatatlan részét képezi az adatvédelmi
+				szabályzat, mely elektronikus formában</span></span>
+		<span face="Roboto, serif"><span lang="hu-HU">
+			</span></span>
+		<span face="Roboto, serif"><span lang="hu-HU">megtekinthetőek
+				és letölt</span></span>
+		<span face="Roboto, serif"><span lang="hu-HU">hető</span></span>
+		<span face="Roboto, serif"><span lang="hu-HU">
+				a
+			</span></span><a href="https://www.jozsaiszakik.hu/t%C3%A1j%C3%A9koztat%C3%B3/adatv%C3%A9delmi-nyilatkozat">
+			<span color="#1155cc">
+				<span face="Roboto, serif"><span
+						lang="hu-HU"><u>https://www.jozsaiszakik.hu/tájékoztató/adatvédelmi-nyilatkozat</u></span>
+				</span>
+			</span>
+		</a>
+		<span face="Roboto, serif"><span lang="hu-HU">,vagy
+				a </span></span><a href="http://www.1kbyte.hu/t%C3%A1j%C3%A9koztat%C3%B3/adav%C3%A1delmi-nyilatkozat">
+			<span color="#1155cc">
+				<span face="Roboto, serif"><span
+						lang="hu-HU"><u>www.1kbyte.hu/tájékoztató/adavádelmi-nyilatkozat</u></span></span>
+			</span>
+		</a>
+		<span face="Roboto, serif"><span lang="hu-HU">
+			</span></span>
+		<span face="Roboto, serif"><span lang="hu-HU">oldalról</span></span>
+		<span face="Roboto, serif"><span lang="hu-HU">.</span></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Amennyiben
+			Szolgáltatón</span>
+		<span face="Roboto, serif"><b> kívül álló
+				okok </b></span>
+		<span face="Roboto, serif">miatt nem tudja a
+			Szolgáltató a weboldal elérhetőségét biztosítani, a Megrendelő
+			nem jogosult a megfizetett szolgáltatás ellenérték részleges
+			vagy teljes visszaigénylésére. </span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Amennyiben
+			a </span>
+		<span face="Roboto, serif"><b>Szolgáltató hibájából</b></span>
+		<span face="Roboto, serif">
+			adódóan (vállalkozás megszűnés, egyéb okok miatt) nem tudja a
+			honlap elérhetőségét a honlapot látogató személyek számára
+			biztosítani maximum 30 naptári napon túl, akkor a 30 naptári nap
+			türelmi időn túl a szerződés lejártáig időarányos
+			visszatérítés kérhető melyet e-mail-ben kell jelezni a
+			Szolgáltató felé. </span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<!--p lang="hu-HU" align="justify" style="margin-bottom: 0cm; page-break-before: always">
+		<br />
+
+	</p-->
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>9.
+				Elállás joga</b></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">A
+			Megrendelőt meghatározott határidőn belül indokolás nélküli
+			elállási jog illeti meg.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">A
+			szerződés megkötésétől számított 14 napon belül a
+			Szolgáltató felé jelzett elállás esetén a szolgáltatásért
+			fizetett teljes ellenérték vissza térítésre kerül. A
+			Szolgáltató a Megrendelőnek visszajáró összeget a fogyasztó
+			által igénybe vett fizetési móddal megegyező módon téríti
+			vissza. Amennyiben a fentebb jelzett időn túl azaz a szerződés
+			megkötésétől számított 14 nap után jelzi az elállási jogát,
+			de a szolgáltatás teljes mértékben teljesült azaz a hirdetés
+			megjelent a, ebben az esetben sem részben sem egészben nem jogosult
+			a szolgáltatásért megfizetett díj visszaigénylésére</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>9.1
+				Az elállás jog érvényesítésének menete</b></span>
+	</p>
+	<p align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><span lang="hu-HU">Az
+				elállási szándékát tartós adathordozón e-mailben az
+			</span></span><a href="mailto:jozsaiszakik@gmail.com">
+			<span color="#1155cc">
+				<span face="Roboto, serif"><span lang="hu-HU"><u>jozsaiszakik@gmail.com</u></span></span>
+			</span>
+		</a>
+		<span face="Roboto, serif"><span lang="hu-HU">
+				e-mail címen közölheti amelynek tartalmaznia kell a következőket:</span></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Név:</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Cím:</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Email
+			cím:</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Szerződéskötés
+			időpontja:</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Hirdetés
+			azonosítója:(a megjelenített hirdetésben találja pl.:
+			HA[év]/[sorszám] </span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Beillesztendő
+			szövegrész: “ Alulírott kijelentem, hogy gyakorlom elállási
+			jogomat a hirdetési szolgáltatás nyújtására irányuló
+			szerződés tekintetében. Kérem az adatok tárolására szolgáló
+			adatbázisból adataim törlését.. Kelt………..” .</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">A
+			törlésről visszaigazolást küldünk e-mailben és haladéktalanul
+			vissza utaljuk a </span>
+		<span face="Roboto, serif"><b>4.pontban</b></span>
+		<span face="Roboto, serif">
+			feltüntetett és megfizetett ellenértékét.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>10
+				Adat módosítása</b></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Amennyiben
+			a Megrendelő adataiban változás következik be, azt minél előbb
+			e-mail-ben jelezni kell a szolgáltató felé hogy a szerződés a
+			módosított adatokkal a valóságnak megfeleljenek. A szerződés
+			lejáratának a idejét az adatmódosítás nem befolyásolja és
+			díjmentes.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Ha
+			a 2.pontban feltüntet a hirdetésben megjelenő adatokban szeretne
+			változtatást végrehajtani úgy a módosítani kívánta adatokat
+			e-mail-ben jelezze a Szolgáltató felé. Ezen adatok módosítása
+			díjmentes.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"><b>11.
+				Garancia</b></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Szolgáltató
+			nem vállal garanciát azért, hogy a szolgáltatás megrendelésével
+			tényleges</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">megrendelésekre,
+			bevételre tesz szert a Megrendelő, azaz Szolgáltató nem tartozik</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">eredmény
+			felelősséggel.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<!--p lang="hu-HU" align="justify" style="margin-bottom: 0cm; page-break-before: always">
+		<br />
+
+	</p-->
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Jelen
+			szerződésben nem szabályozott kérdésekben a Magyar Köztársaság
+			Polgári </span>
+		<span face="Roboto, serif">T</span>
+		<span face="Roboto, serif">örvénykönyvének
+			szabályai az irányadóak. Mindkét fél fenntartja az év közbeni
+			szerződésmódosítás </span>
+		<span face="Roboto, serif">jogát a
+			fentebb felsoroltak tekintetében.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">A
+			megrendelő kijelenti hogy az általa feltüntetett adatok a
+			valóságnak megfelelnek, 18. életévét betöltötte és
+			tevékenysége nem ütközik törvénybe.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Amennyiben
+			a Megrendelő a hirdetési szolgáltatás a weboldalon elhelyezett
+			megrendelési űrlapon keresztül rendeli meg, akkor az adatvédelmi
+			nyilatkozat és az általános szerződési feltételek elfogadásával
+			ráutalo magatartással üzletheylíségen kivül kötött és
+			távollévők között létrejött szerződésnek számít, ebben az
+			esetben nem kell a szerződést kézjegyükkel ellátni, de ez nem
+			zárja ki hogy a Megrendelő kérésére nyomtatott, papír alapú
+			szerződés készüljön.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Papír
+			alapú szerződés esetén!</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif">Felek
+			jelen szerződést annak többszöri alapos elolvasása és megértése
+			után,</span>
+		<span face="Roboto, serif"> </span>
+		<span face="Roboto, serif">
+			minden pontjában és kitételében megegyezőt,
+			kötelezettségvállalásuk jeleként kézjegyükkel látták el.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span>Kelt: Debrecen <span><b id="hkeltdatum" style="font-style: italic;"></b></span>
+		</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"> </span>
+		<span face="Roboto, serif">
+		</span>
+		<span face="Roboto, serif"><b>Szolgáltató
+				Megrendelő</b></span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm">
+		<span face="Roboto, serif"> </span>
+		<span face="Roboto, serif">Nyisztor
+			Zoltán e.v.</span>
+	</p>
+	<p lang="hu-HU" align="justify" style="margin-bottom: 0cm"><br />
+
+	</p>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+	<script src="script2.js"></script>
+</body>
+
+</html>

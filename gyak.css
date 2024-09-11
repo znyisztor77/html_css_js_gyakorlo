@@ -6,6 +6,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding: 10px;
+    background-color: black;
     
   }
   
@@ -16,11 +17,13 @@ body {
   .header-style{
     border: 1px solid orange;
     padding: 10px;
+    color: aliceblue;
   }
   .navbar-style{
     border: 1px solid rgb(4, 0, 255);
     display: flex;
     justify-content: center;
+    color: aliceblue;
   }
   .navbar-style li{
     list-style-type: none;
@@ -31,6 +34,7 @@ body {
   
   a{
     text-decoration: none;
+    color: aliceblue;
   }
   
   .container2{
@@ -39,7 +43,8 @@ body {
   }
   
   .asside-style{
-    background-color: antiquewhite;
+    /*background-color: antiquewhite;*/
+    color: aliceblue;
     max-width: 200px;
     border: 1px solid rgb(204, 0, 255);  
     margin: 10px;
@@ -92,6 +97,7 @@ body {
     padding: 5px;
     display: flex;
     justify-content: center;
+    color: aliceblue;
      
   }
   
@@ -112,9 +118,11 @@ body {
     border: 1px solid rgb(204, 0, 255);
     margin: 10px;
     padding: 5px;
+    color: aliceblue;
   }
   
   .footer-style{
-    border: 1px solid rgb(204, 0, 255);  
+    border: 1px solid rgb(0, 140, 255);  
     padding: 5px;
+    color: aliceblue;
   }

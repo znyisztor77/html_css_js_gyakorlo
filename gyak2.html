@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        header {
+        grid-area: header;
+        }
+        main {
+        grid-area: main;
+        }
+        footer {
+        grid-area: footer;
+        }
+        .left-aside {
+        grid-area: left-aside;
+        }
+        .right-aside {
+        grid-area: right-aside;
+        }
+        .banner{
+            grid-area: banner;
+        }
+        .low_content{
+            grid-area: low-content;
+        }
+        .container{
+            display: grid;
+            grid-template-rows: 80px auto 1fr auto 50px;
+            grid-template-columns: 1fr 4fr 1fr;
+            height: 100vh;
+            grid-template-areas: 
+                    "header         header          header"
+                    "left-aside     banner          right-aside"
+                    "left-aside     main            right-aside"
+                    "left-aside     low-content     right-aside"
+                    "footer         footer          footer";
+            grid-gap: 10px;
+            padding: 10px;
+            font-weight: 600;  
+            font-size: 20px;        
+        }
+        @media(max-width:670px){
+            .container{
+                grid-template-rows: 50px 50px 50px 1fr 50px 50px 50px;
+                grid-template-columns: 1fr;
+                grid-template-areas: 
+                    "header"
+                    "banner"
+                    "left-aside"
+                    "main"
+                    "right-aside"
+                    "low-content"
+                    "footer";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <header style="background-color: rgb(238, 149, 85);">Header</header>
+        <aside class="left-aside" style="background-color: green;">Left_Asside</aside>
+        <section class="banner" style="background-color: brown;">Banner Lorem ipsum dolor sit amet consectetur adipisicing elit. A sed esse odio ratione delectus nihil aliquid! Iure quam exercitationem vel cum fugit magni fugiat, impedit eius! Optio explicabo commodi consequatur?
+        Neque facere sint laudantium, recusandae possimus aliquid eveniet numquam optio provident, perspiciatis laboriosam odio consequatur culpa inventore! Beatae laboriosam voluptatibus atque omnis labore, voluptates quaerat assumenda obcaecati aliquam, blanditiis nihil.
+        Debitis illo reiciendis laudantium aspernatur, aliquid asperiores, officia quaerat consequatur autem non labore quisquam natus possimus! Magni placeat quia eius aut facere exercitationem natus accusantium quasi. Fugit sit harum corrupti.
+        Nesciunt quasi veniam soluta velit, exercitationem maxime illum repudiandae. Praesentium iusto ipsam illum, incidunt numquam id velit. Nobis recusandae tempora adipisci sapiente non, quo saepe quas eligendi assumenda atque magnam?
+        Earum voluptatum amet nisi dolorem deleniti numquam temporibus praesentium rerum accusamus pariatur, voluptas officiis, nulla ab doloribus nemo est minus perferendis sit fugiat! Laboriosam, tenetur. Debitis consequatur reprehenderit maxime quam?</section>
+        <main style="background-color: cornflowerblue;">Main Content</main>
+        <aside class="right-aside" style="background-color: rgb(238, 149, 85);">Right Asside</aside>
+        <section  class="low-content" style="background-color: green;">Low Content</section>
+        <footer style="background-color: cornflowerblue;">Footer</footer>
+    </div>
+   
+
+</body>
+</html>
