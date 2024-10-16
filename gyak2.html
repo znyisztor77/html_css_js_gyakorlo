@@ -6,48 +6,61 @@
     <title>Alap html elrendezés</title>
     <style>
         body{
-            text-align: center;
+            background-color: black; 
+            margin: 0;           
         }
         header {
+            padding: 5px;
         grid-area: header;
         }
         main {
+            padding: 5px;
         grid-area: main;
         }
         footer {
+            padding: 5px;
         grid-area: footer;
         }
         .left-aside {
+            padding: 5px;
         grid-area: left-aside;
         }
         .right-aside {
+            padding: 5px;
         grid-area: right-aside;
         }
         .banner{
+            padding: 5px;
             grid-area: banner;
         }
-        .low_content{
+        .low-content{
+            padding: 5px;
             grid-area: low-content;
         }
         .container{
             display: grid;
-            grid-template-rows: 80px auto 1fr auto 50px;
-            grid-template-columns: 1fr 4fr 1fr;
+            
+            
+            grid-template-rows: 50px auto 1fr auto 80px;
+            grid-template-columns: 1fr 8fr 1fr;
             height: 100vh;
+            
             grid-template-areas: 
                     "header         header          header"
                     "left-aside     banner          right-aside"
                     "left-aside     main            right-aside"
                     "left-aside     low-content     right-aside"
                     "footer         footer          footer";
-            grid-gap: 10px;
+            grid-gap: 15px;
             padding: 10px;
-            font-weight: 600;  
-            font-size: 20px;        
+            /*font-weight: 600;*/  
+            /*font-size: 20px; */
+              
         }
-        @media(max-width:670px){
+        @media(max-width:620px){
             .container{
                 grid-template-rows: 50px 1fr 50px 1fr 50px 1fr 50px;
+                height: 100vh;
                 grid-template-columns: 1fr;
                 grid-template-areas: 
                     "header"
@@ -59,24 +72,72 @@
                     "footer";
             }
         }
+        header ul{
+            list-style-type: none;
+            margin: 0;
+        }
+        header li{
+            display: inline-block;
+            /*height: 40px;*/
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        /*@media  screen and (max-width: 768px){
+        header li{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+            }
+        } */   
+        header li:hover{
+            background-color: #86cdc7;
+        }
+        a:link, a:visited, a:hover, a:active{
+            color: white;
+            text-decoration: none;
+        } 
+          
     </style>
 </head>
 <body>
     <div class="container">
 
-        <header style="background-color: rgb(238, 149, 85);">Header</header>
-        <aside class="left-aside" style="background-color: green;">Left_Asside</aside>
-        <section class="banner" style="background-color: brown;">Banner Lorem ipsum dolor sit amet consectetur adipisicing elit. A sed esse odio ratione delectus nihil aliquid! Iure quam exercitationem vel cum fugit magni fugiat, impedit eius! Optio explicabo commodi consequatur?
+        <header style="border: 1px solid rgb(4, 0, 255); color: rgb(209, 141, 52);box-shadow: 0 0 10px 5px #48abe0;"><span>Header</span>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul></header>
+        <aside class="left-aside" style="border: 1px solid rgb(204, 0, 255);  color: rgb(255, 255, 255);">Left Asside</aside>
+        <section class="banner" style="border: 1px solid rgb(238, 131, 31);  color: rgb(255, 255, 255);"><span style="color: aqua;">Banner</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. A sed esse odio ratione delectus nihil aliquid! Iure quam exercitationem vel cum fugit magni fugiat, impedit eius! Optio explicabo commodi consequatur?
         Neque facere sint laudantium, recusandae possimus aliquid eveniet numquam optio provident, perspiciatis laboriosam odio consequatur culpa inventore! Beatae laboriosam voluptatibus atque omnis labore, voluptates quaerat assumenda obcaecati aliquam, blanditiis nihil.
         Debitis illo reiciendis laudantium aspernatur, aliquid asperiores, officia quaerat consequatur autem non labore quisquam natus possimus! Magni placeat quia eius aut facere exercitationem natus accusantium quasi. Fugit sit harum corrupti.
         Nesciunt quasi veniam soluta velit, exercitationem maxime illum repudiandae. Praesentium iusto ipsam illum, incidunt numquam id velit. Nobis recusandae tempora adipisci sapiente non, quo saepe quas eligendi assumenda atque magnam?
         Earum voluptatum amet nisi dolorem deleniti numquam temporibus praesentium rerum accusamus pariatur, voluptas officiis, nulla ab doloribus nemo est minus perferendis sit fugiat! Laboriosam, tenetur. Debitis consequatur reprehenderit maxime quam?</section>
-        <main style="background-color: cornflowerblue;">Main Content L </main>
-        <aside class="right-aside" style="background-color: rgb(238, 149, 85);">Right Asside</aside>
-        <section  class="low-content" style="background-color: green;">Low Content Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente iste at nemo nulla aperiam minus blanditiis odio sint a nam necessitatibus, neque corrupti quis velit dolorum harum ea quisquam tempora!
+        <main style="border: 1px solid rgb(3, 103, 170);  color: rgb(255, 255, 255);">Main Content 
+            <pre id="text">
+                <code>
+                   
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="en"&gt;
+                    &lt;head&gt;
+                        &lt;meta charset="UTF-8"&gt
+                        &lt;meta name="viewport" content="width=, initial-scale=1.0"&gt;
+                        &lt;title&gt;znyisztor.github.io&lt/title&gt;
+                        &lt;link rel="stylesheet" href="style.css"&gt;
+                    &lt;/head&gt;
+                </code> 
+                          
+            </pre> 
+
+
+            
+        </main>
+        <aside class="right-aside" style="border: 1px solid rgb(204, 0, 255);  color: rgb(255, 255, 255);">Right Asside</aside>
+        <section  class="low-content" style="border: 1px solid rgb(170, 3, 3);  color: rgb(255, 255, 255);"><span style="color: aqua;">Low Content</span>   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente iste at nemo nulla aperiam minus blanditiis odio sint a nam necessitatibus, neque corrupti quis velit dolorum harum ea quisquam tempora!
         Tenetur optio illo architecto adipisci sapiente recusandae iusto dicta incidunt eos unde reprehenderit, ea odio voluptatibus facere nisi ex possimus harum. Sint laborum, modi explicabo soluta similique labore? Perferendis, vitae.
         Nihil eligendi ipsum eos illum dignissimos sit cupiditate sequi, nam reprehenderit? Maiores reprehenderit illum, laboriosam explicabo quas quos, ex eos magni error ipsam, laudantium voluptatibus magnam dignissimos in aliquam voluptatum?</section>
-        <footer style="background-color: cornflowerblue;">Footer</footer>
+        <footer style="border: 1px solid rgb(9, 170, 3);  color: rgb(255, 255, 255);"><span style="color: aqua;">Footer</span>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ex maiores dignissimos iusto perspiciatis nulla accusamus cupiditate odio quis sequi eos accusantium explicabo assumenda illum, tempora incidunt velit laboriosam unde! </footer>
     </div>
    
 
