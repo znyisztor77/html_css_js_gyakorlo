@@ -96,3 +96,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Elindítjuk az első hívást
     addCharacter();
 });
+const URL_Citatum = "https://www.citatum.hu/napiidezet.php";
+var container = document.getElementById("citatum"); 
+container.innerHTML = 'A nagy szeretet mindig ki tudja fejezni magát áldozattal és önfeláldozással.(Jack London)';
